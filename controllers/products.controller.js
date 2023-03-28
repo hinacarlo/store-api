@@ -1,10 +1,13 @@
-const getAllProductsStatic = async (req, res) => {
-  res.status(200).json({ message: "products testing route" });
-};
+const asyncHandler = require("express-async-handler");
 
-const getAllProducts = async (req, res) => {
+const getAllProductsStatic = asyncHandler(async (req, res) => {
+  throw new Error("Testing async errors");
+  res.status(200).json({ message: "products testing route" });
+});
+
+const getAllProducts = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "products route" });
-};
+});
 
 module.exports = {
   getAllProducts,
