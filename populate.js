@@ -11,9 +11,10 @@ const startServer = async () => {
     await Product.deleteMany();
     await Product.create(productsJson);
     console.log("Success...");
-    process.exit();
+    process.exit(0);
   } catch (error) {
     console.log(error);
+    process.exit(1);
   }
 };
 
